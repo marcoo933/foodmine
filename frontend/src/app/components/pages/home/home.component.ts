@@ -16,6 +16,7 @@ export class HomeComponent {
   ) {
     activatedRoute.params.subscribe((params) => {
       params['searchTerm'] ? this.foods = this.foodService.getAllFoodsBySearchTerm(params['searchTerm']) : this.foods = foodService.getAll();
+      params['tag'] && (this.foods = this.foodService.getAllFoodsByTag(params['tag']));
     })
 
   }
